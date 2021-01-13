@@ -1,0 +1,177 @@
+apiVersion: appprotect.f5.com/v1beta1
+kind: APPolicy
+metadata:
+  name: fch-policy
+spec:
+  policy:
+    applicationLanguage: utf-8
+    name: Complete_OWASP_Top_Ten
+    description: A generic, OWASP Top 10 protection items v1.0
+    template:
+      name: POLICY_TEMPLATE_NGINX_BASE
+    enforcementMode: blocking
+    signature-settings:
+            #      - signatureStaging: false
+      attackSignatureFalsePositiveMode: detect-and-allow
+      minimumAccuracyForAutoAddedSignatures: high
+    caseInsensitive: true
+    server-technologies:
+      - serverTechnologyName: PHP
+      - serverTechnologyName: MySQL
+      - serverTechnologyName: Unix/Linux
+      - serverTechnologyName: jQuery
+    general:
+      trustXff: true
+    blocking-settings:
+      evasions:
+      - description: Bad unescape
+        enabled: true
+      - description: Apache whitespace
+        enabled: true
+      - description: Bare byte decoding
+        enabled: true
+      - description: IIS Unicode codepoints
+        enabled: true
+      - description: IIS backslashes
+        enabled: true
+      - description: "%u decoding"
+        enabled: true
+      - description: Multiple decoding
+        enabled: true
+        maxDecodingPasses: 3
+      - description: Directory traversals
+        enabled: true
+      violations:
+      - alarm: true
+        block: false
+        name: VIOL_DATA_GUARD
+        description: Data leakage
+      - alarm: true
+        block: true
+        description: Failed to convert character
+        name: VIOL_ENCODING
+      - alarm: true
+        block: true
+        description: Evasion technique detected
+        name: VIOL_EVASION
+      - alarm: true
+        block: true
+        description: Modified ASM cookie
+        name: VIOL_ASM_COOKIE_MODIFIED
+      - alarm: true
+        block: true
+        description: Modified domain cookie(s)
+        name: VIOL_COOKIE_MODIFIED
+      - alarm: true
+        block: true
+        description: Illegal file type
+        name: VIOL_FILETYPE
+      - alarm: true
+        block: true
+        description: Illegal method
+        name: VIOL_METHOD
+    cookies:
+      - name: "*"
+        type: wildcard
+        enforcementType: allow
+        insertSameSiteAttribute: lax
+        securedOverHttpsConnection: true
+    methods:
+      - name: GET
+      - name: POST
+    sensitive-parameters:
+      - name: password
+      - name: token
+    filetypes:
+      - name: ".exe"
+        type: wildcard
+        allowed: false
+        responseCheck: true
+      - name: ".pdf"
+        type: wildcard
+        allowed: false
+        responseCheck: true
+      - name: ".bin"
+        type: wildcard
+        allowed: false
+        responseCheck: true
+      - name: "*"
+        type: wildcard
+        allowed: true
+        responseCheck: true
+    data-guard:
+      creditCardNumbers: true
+      enabled: true
+      enforcementMode: ignore-urls-in-list
+      enforcementUrls: []
+      lastCcnDigitsToExpose: 4
+      lastSsnDigitsToExpose: 4
+      maskData: true
+      usSocialSecurityNumbers: true
+    signature-sets:
+    - alarm: true
+      block: false
+      name: Vulnerability Scanner Signatures
+    - alarm: true
+      block: false
+      name: Buffer Overflow Signatures
+    - alarm: true
+      block: false
+      name: SQL Injection Signatures
+    - alarm: true
+      block: false
+      name: Cross Site Scripting Signatures
+    - alarm: true
+      block: false
+      name: Denial of Service Signatures
+    - alarm: true
+      block: false
+      name: OS Command Injection Signatures
+    - alarm: true
+      block: false
+      name: Path Traversal Signatures
+    - alarm: true
+      block: false
+      name: XPath Injection Signatures
+    - alarm: true
+      block: false
+      name: Command Execution Signatures
+    - alarm: true
+      block: false
+      name: Information Leakage Signatures
+    - alarm: true
+      block: false
+      name: Directory Indexing Signatures
+    - alarm: true
+      block: false
+      name: Remote File Include Signatures
+    - alarm: true
+      block: false
+      name: Predictable Resource Location Signatures
+    threat-campaigns:
+    - isEnabled: True
+      name: ThreatCampaign
+    urls:
+    - description: "* GET"
+      name: "*"
+      protocol: "https"
+      attackSignaturesCheck: true
+      isAllowed: true
+      method: "GET"
+    - description: "* POST"
+      name: "*"
+      protocol: "https"
+      attackSignaturesCheck: true
+      isAllowed: true
+      method: "POST"
+    - description: "* DELETE"
+      name: "*"
+      protocol: "https"
+      attackSignaturesCheck: true
+      isAllowed: false
+      method: "DELETE"
+    - name: "*"
+      description: "Admin pages"
+      protocol: "https"
+      attackSignaturesCheck: true
+      isAllowed: true

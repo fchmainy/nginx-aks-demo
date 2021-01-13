@@ -1,0 +1,190 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adjectives
+  namespace: api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: adjectives
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adjectives
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: adjectives
+  template:
+    metadata:
+      labels:
+        name: adjectives
+    spec:
+      containers:
+      - name: adjectives
+        image: registry.gitlab.com/k8sfch/demo-name-generator/adjectives:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: animals
+  namespace: api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: animals
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: animals
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: animals
+  template:
+    metadata:
+      labels:
+        name: animals
+    spec:
+      containers:
+      - name: animals
+        image: registry.gitlab.com/k8sfch/demo-name-generator/animals:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: colors
+  namespace: api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: colors
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colors
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: colors
+  template:
+    metadata:
+      labels:
+        name: colors
+    spec:
+      containers:
+      - name: colors
+        image: registry.gitlab.com/k8sfch/demo-name-generator/colors:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locations
+  namespace: api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: locations
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locations
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: locations
+  template:
+    metadata:
+      labels:
+        name: locations
+    spec:
+      containers:
+      - name: locations
+        image: registry.gitlab.com/k8sfch/demo-name-generator/locations:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: generator
+  namespace: api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: generator
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: generator
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: generator
+  template:
+    metadata:
+      labels:
+        name: generator
+    spec:
+      containers:
+      - name: generator
+        image: registry.gitlab.com/k8sfch/demo-name-generator/generator:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

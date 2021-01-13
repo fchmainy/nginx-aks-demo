@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apigw
+  namespace: apigw
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: apigw
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigw
+  namespace: apigw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigw
+  template:
+    metadata:
+      labels:
+        app: apigw
+    spec:
+      containers:
+      - name: apigw
+        image: registry.gitlab.com/k8sfch/demo-name-generator/apigw:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: CTRL_FQDN
+          value: controller.f5demolab.org
+        - name: LOCATION
+          value: aks_apigw-ns
+        - name: CTRL_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: controller-cred
+              key: username
+        - name: CTRL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: controller-cred
+              key: password
+        - name: GATEWAY
+          value: apigw
+      imagePullSecrets:
+        - name: regcred

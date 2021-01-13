@@ -1,0 +1,35 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tshoot
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 9000
+  selector:
+    name: tshoot
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tshoot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: tshoot
+  template:
+    metadata:
+      labels:
+        name: tshoot
+    spec:
+      containers:
+      - name: tshoot
+        image: registry.gitlab.com/k8sfch/demo-name-generator/colors:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9000
+      imagePullSecrets:
+        - name: regcred

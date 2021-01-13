@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apigwnap
+  namespace: apigw
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: apigwnap
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigwnap
+  namespace: apigw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigwnap
+  template:
+    metadata:
+      labels:
+        app: apigwnap
+    spec:
+      containers:
+      - name: apigwnap
+        image: registry.gitlab.com/k8sfch/demo-name-generator/apigwnap:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

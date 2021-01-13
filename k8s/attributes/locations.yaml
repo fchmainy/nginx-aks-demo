@@ -1,0 +1,35 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locations
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: locations
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locations
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locations
+  template:
+    metadata:
+      labels:
+        app: locations
+    spec:
+      containers:
+      - name: locations
+        image: registry.gitlab.com/k8sfch/demo-name-generator/locations:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred

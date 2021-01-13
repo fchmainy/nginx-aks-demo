@@ -1,0 +1,17 @@
+
+{ 
+	"adjectives": [
+	{
+		"id": 1,
+		"name": "kind"
+	},
+        {
+                "id": 2,
+                "name": "proud"
+        },
+        {
+                "id": 3,
+                "name": "calm"
+        }
+	]
+}

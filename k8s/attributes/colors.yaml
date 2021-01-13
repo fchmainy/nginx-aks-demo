@@ -1,0 +1,35 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: colors
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: colors
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colors
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: colors
+  template:
+    metadata:
+      labels:
+        app: colors
+    spec:
+      containers:
+      - name: colors
+        image: registry.gitlab.com/k8sfch/demo-name-generator/colors:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred

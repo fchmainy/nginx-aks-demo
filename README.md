@@ -1,1 +1,1 @@
-# nginx-aks-demo
+# K8s-name-generator

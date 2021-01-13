@@ -1,0 +1,73 @@
+{
+      "desiredState": {
+        "devPortalTheme": {
+          "brandName": "FCH",
+          "customConfig": {
+            "fonts": {
+              "assignments": {
+                "body": {
+                  "kind": "google-web-font",
+                  "value": "Fira+Sans"
+                },
+                "code": {
+                  "kind": "google-web-font",
+                  "value": "IBM+Plex+Mono"
+                },
+                "cta": {
+                  "kind": "google-web-font",
+                  "value": "Lato"
+                },
+                "headings": {
+                  "kind": "google-web-font",
+                  "value": "Lato"
+                },
+                "special": {
+                  "kind": "google-web-font",
+                  "value": "Lato"
+                }
+              }
+            },
+            "primary": {
+              "color": {
+                "accent": "#3b43be",
+                "fill": "#ffffff",
+                "ink": "#171d21",
+                "primary": "#3b43be"
+              }
+            },
+            "secondary": {
+              "color": {
+                "accent": "#ffffff",
+                "fill": "#f7f8fa",
+                "gray": "#272938",
+                "ink": "#2c3039",
+                "primary": "#3b43be"
+              }
+            }
+          },
+          "overrideDefaultTheme": true
+        },
+        "devPortalType": "private",
+        "ingress": {
+          "gatewayRefs": [
+            {
+		"ref": "/services/environments/aks/gateways/firstgw"
+            }
+          ]
+        },
+        "publishedApiRefs": [
+                  {
+            "ref": "/services/environments/aks/apps/name/published-apis/publishedapi"
+          }
+	]
+      },
+      "metadata": {
+        "createTime": "2020-12-01T15:57:27Z",
+        "displayName": "NAMES API DEV PORTAL",
+        "kind": "devportal",
+        "name": "name_devportal",
+        "tags": [],
+        "uid": "dcf61680-610b-480a-a398-7a8587fb2d9c",
+        "updateTime": "2020-12-04T00:12:25Z"
+      }
+    }
