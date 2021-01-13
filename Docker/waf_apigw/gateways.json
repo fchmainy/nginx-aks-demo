@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "name": "$GATEWAY",
+    "tags": []
+  },
+  "desiredState": {
+    "ingress": {
+      "uris": {},
+      "methods": [
+        "POST",
+        "GET",
+        "PUT",
+        "DELETE",
+        "PATCH"
+      ],
+      "placement": {
+        "instanceRefs": [
+          {
+            "ref": "/infrastructure/locations/$LOCATION/instances/$HOSTNAME"
+          }
+        ]
+      }
+    }
+  }
+}
