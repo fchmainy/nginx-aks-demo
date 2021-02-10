@@ -2,7 +2,7 @@
 This is a very simple kubernetes demo application intended to show most of the benefits of using F5 Technology for your application delivery and security.
 It is composed of multiple technology frameworks.
 
-![alt text](https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/images/topology.jpeg)
+![alt text](https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/images/topology.jpg)
 
 # Features
 - Ingress Canary testing
