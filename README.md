@@ -14,7 +14,7 @@ It is composed of multiple technology frameworks.
 ## Task 1: Deploy the version 1 of the application
 Simple application composed of multiple microservices.
   [Task1: Deploy the version 1 of the application] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task1/README.md)
-  ![alt text](https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/images/task1-topology.jpeg)
+  ![alt text](https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/images/task1-topology.jpg)
 
 **Features:**
 - NGINX+ Ingress Service
@@ -33,7 +33,7 @@ Simple application composed of multiple microservices.
       in our scenario, the generator is the central piece of the configuration so we decided to make it have its own APIGW closest to the application.
         - it scales 1:1 along with the application
 
-  ![alt text](https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/images/task2-topology.jpeg)
+  ![alt text](https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/images/task2-topology.jpg)
 
   **Duration:**: 30 minutes.
 
