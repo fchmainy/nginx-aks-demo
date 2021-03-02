@@ -27,9 +27,7 @@ spec:
     spec:
       containers:
       - name: colors
-        image: registry.gitlab.com/k8sfch/demo-name-generator/colors:latest
+        image: registry.gitlab.com/sentence-application/colors:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-        - name: regcred
