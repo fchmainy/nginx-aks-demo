@@ -29,7 +29,9 @@ Simple application composed of multiple microservices.
   **Duration:**
 
   **Features:**
-    - NGINX Controller API Management (https://www.nginx.com/products/nginx-app-protect/)
+  - NGINX Controller API Management
+  
+    ![](https://raw.githubusercontent.com/MattDierick/api-sentence-demo/main/docs/images/topology2.png)
 
 
 ## Task 3: Web Application and API Protection (WAAP)
