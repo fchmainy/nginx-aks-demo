@@ -2,7 +2,9 @@
 This is a very simple kubernetes demo application intended to show most of the benefits of using F5 Technology for your application delivery and security.
 It is composed of multiple technology frameworks.
 
-![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/topology.jpg?raw=true)
+This app will generate a sentence :)
+
+![alt text](https://raw.githubusercontent.com/MattDierick/api-sentence-demo/main/docs/images/webapp.png)
 
 # Features
 - Ingress Canary testing
@@ -20,31 +22,14 @@ Simple application composed of multiple microservices.
 - NGINX+ Ingress Service
 - Cross-Namespace deployment
 
-
 ## Task 2: API Management
   **Goal:**
-  We are making our simple application to evolve with a more secure framework and Application Security
-  Two different deployment model for our API Gateway in this case:
-    - Shared and centralized API Gateway in a dedicated namespace so micro-services can talk one with the others through this API Gateway.
-      - scales independantly 
+    Deploy an API Gw in Kubernetes managed by Nginx Controller. And scale this Gateway in K8S with auto-adoption by the controller.
 
-    - API Gateway injected as a sidecar
-      - specialized for the associated application sharing the same pod.
-      in our scenario, the generator is the central piece of the configuration so we decided to make it have its own APIGW closest to the application.
-        - it scales 1:1 along with the application
-
-  ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/Task2-topology.png?raw=true)
-
-  **Duration:**: 30 minutes.
-
-  **Lab Guide:**
-  [Task2: API Management] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task2/README.md)
-
+  **Duration:**
 
   **Features:**
-  - NGINX API Management :
-      NGINX Controller (https://www.nginx.com/products/nginx-controller/)
-
+    - NGINX Controller API Management (https://www.nginx.com/products/nginx-app-protect/)
 
 
 ## Task 3: Web Application and API Protection (WAAP)
@@ -61,7 +46,7 @@ Simple application composed of multiple microservices.
   [Task3: WAAP] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task3/README.md)
 
 
-## Task 5: Service Mesh
+## Task 4: Service Mesh
 **Goal:**
     Securing Microservice to Microservice communication in a hollistic Zero-Trust model while extending the visibility and
 
@@ -72,6 +57,32 @@ Simple application composed of multiple microservices.
 
 
 **Lab Guide:**
+
+## Task 5: API Management with API GW as sidecar
+  **Goal:**
+  We are making our simple application to evolve with a more secure framework and Application Security
+  Two different deployment model for our API Gateway in this case:
+    - Shared and centralized API Gateway in a dedicated namespace so micro-services can talk one with the others through this API Gateway.
+      - scales independantly 
+
+    - API Gateway injected as a sidecar
+      - specialized for the associated application sharing the same pod.
+      in our scenario, the generator is the central piece of the configuration so we decided to make it have its own APIGW closest to the application.
+        - it scales 1:1 along with the application
+
+  ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/Task2-topology.png?raw=true)
+
+  **Duration:**: 30 minutes.
+
+  **Lab Guide:**
+  [Task5: API Management] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task2/README.md)
+
+
+  **Features:**
+  - NGINX API Management :
+      NGINX Controller (https://www.nginx.com/products/nginx-controller/)
+
+
 
 # Upcoming:
 - version 1: Direct MS to MS
