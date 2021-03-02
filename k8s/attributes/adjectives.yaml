@@ -27,9 +27,7 @@ spec:
     spec:
       containers:
       - name: adjectives
-        image: registry.gitlab.com/k8sfch/demo-name-generator/adjectives:latest
+        image: registry.gitlab.com/sentence-application/adjectives:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-        - name: regcred

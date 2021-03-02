@@ -29,9 +29,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.gitlab.com/k8sfch/demo-name-generator/frontend:latest
+        image: registry.gitlab.com/sentence-application/frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
