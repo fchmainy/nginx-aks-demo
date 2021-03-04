@@ -66,13 +66,13 @@ RUN chgrp -R www-data /var/www
 RUN find /var/www -type d -exec chmod 775 {} +
 RUN find /var/www -type f -exec chmod 664 {} +
 
-EXPOSE 80
+EXPOSE 8080
 
 WORKDIR /var/www/html
 
 RUN rm index.html
 
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost || exit 1
+HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:8080 || exit 1
 
 CMD apachectl -D FOREGROUND
 

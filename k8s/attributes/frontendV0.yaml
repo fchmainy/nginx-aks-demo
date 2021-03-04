@@ -29,12 +29,10 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.gitlab.com/k8sfch/demo-name-generator/frontend:v0.0.1
+        image: registry.gitlab.com/sentence-application/frontend/volterra:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
         - name: NAMESPACE
           value: debug
-      imagePullSecrets:
-        - name: regcred
