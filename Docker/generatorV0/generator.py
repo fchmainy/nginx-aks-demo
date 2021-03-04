@@ -4,6 +4,7 @@ import json
 import urlparse
 import cgi
 import requests
+import os
 
 from random import seed
 from random import randint
@@ -88,7 +89,7 @@ def get_data(ns, attribute, index):
     content_type = 'application/json'
     resource = '/'+ attribute
     #content_length = len(body)
-    uri = 'http://' + attribute + '.' + ns + '/' / attribute + '/' + str(index)
+    uri = 'http://' + attribute + '.' + ns + '/' + attribute + '/' + str(index)
 
     headers = {
         'content-type': content_type,
@@ -106,7 +107,7 @@ def get_data(ns, attribute, index):
         print "Response code: {}".format(response.status_code)
     return name        
 
-def run(server_class=HTTPServer, handler_class=Server, port=80):
+def run(server_class=HTTPServer, handler_class=Server, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     
