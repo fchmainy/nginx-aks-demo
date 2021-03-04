@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.gitlab.com/sentence-application/frontend/frontend-ns-8080:latestt
+        image: registry.gitlab.com/sentence-application/frontend/frontend-ns-8080:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
