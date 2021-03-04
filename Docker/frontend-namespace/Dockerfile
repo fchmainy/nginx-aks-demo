@@ -56,18 +56,18 @@ RUN sed -i -e 's/^error_reporting\s*=.*/error_reporting = E_ALL/' /etc/php/7.2/a
 RUN sed -i -e 's/^display_errors\s*=.*/display_errors = On/' /etc/php/7.2/apache2/php.ini
 RUN sed -i -e 's/^zlib.output_compression\s*=.*/zlib.output_compression = Off/' /etc/php/7.2/apache2/php.ini
 
+RUN sed -i "s/80/8080/g" /etc/apache2/ports.conf
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
-RUN service apache2 stop
+
 COPY generator.conf /etc/apache2/sites-available/
-RUN a2dissite 000-default
-RUN sed -i "s/80/8080/g" /etc/apache2/ports.conf
 RUN a2ensite generator.conf
+
+RUN a2dissite 000-default
 
 RUN chgrp -R www-data /var/www
 RUN find /var/www -type d -exec chmod 775 {} +
 RUN find /var/www -type f -exec chmod 664 {} +
-RUN service apache2 start
 
 EXPOSE 8080
 
