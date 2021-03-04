@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: locations
-        image: registry.gitlab.com/sentence-application/locations:latest
+        image: registry.gitlab.com/sentence-application/locations/volterra:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

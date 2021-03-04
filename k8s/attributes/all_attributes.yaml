@@ -3,145 +3,133 @@ apiVersion: v1
 kind: Service
 metadata:
   name: adjectives
-  namespace: api
 spec:
   type: ClusterIP
   ports:
   - port: 80
-    protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
-    name: adjectives
+    app: adjectives
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: adjectives
-  namespace: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: adjectives
+      app: adjectives
   template:
     metadata:
       labels:
-        name: adjectives
+        app: adjectives
     spec:
       containers:
       - name: adjectives
-        image: registry.gitlab.com/sentence-application/adjectives:latest
+        image: registry.gitlab.com/sentence-application/adjectives/volterra:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: animals
-  namespace: api
 spec:
   type: ClusterIP
   ports:
   - port: 80
-    protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
-    name: animals
+    app: animals
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: animals
-  namespace: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: animals
+      app: animals
   template:
     metadata:
       labels:
-        name: animals
+        app: animals
     spec:
       containers:
       - name: animals
-        image: registry.gitlab.com/sentence-application/animals:latest
+        image: registry.gitlab.com/sentence-application/animals/volterra:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: colors
-  namespace: api
 spec:
   type: ClusterIP
   ports:
   - port: 80
-    protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
-    name: colors
+    app: colors
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: colors
-  namespace: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: colors
+      app: colors
   template:
     metadata:
       labels:
-        name: colors
+        app: colors
     spec:
       containers:
       - name: colors
-        image: registry.gitlab.com/sentence-application/colors:latest
+        image: registry.gitlab.com/sentence-application/colors/volterra:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: locations
-  namespace: api
 spec:
   type: ClusterIP
   ports:
   - port: 80
-    protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
-    name: locations
+    app: locations
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: locations
-  namespace: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: locations
+      app: locations
   template:
     metadata:
       labels:
-        name: locations
+        app: locations
     spec:
       containers:
       - name: locations
-        image: registry.gitlab.com/sentence-application/locations:latest
+        image: registry.gitlab.com/sentence-application/locations/volterra:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -153,7 +141,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
     name: generator
 ---
@@ -177,4 +165,4 @@ spec:
         image: registry.gitlab.com/sentence-application/generator:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
