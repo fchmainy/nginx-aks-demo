@@ -108,7 +108,7 @@ def get_data(gateway, attribute, index):
         print "Response code: {}".format(response.status_code)
     return name        
 
-def run(server_class=HTTPServer, handler_class=Server, port=80):
+def run(server_class=HTTPServer, handler_class=Server, port=8080):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     
