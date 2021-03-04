@@ -33,11 +33,11 @@ COPY adjectives.json /
 #RUN npm install
 
 
-EXPOSE 80
+EXPOSE 8080
 
 WORKDIR /
-CMD ["json-server", "--host", "0.0.0.0", "--port", "80" , "--watch", "adjectives.json"]
+CMD ["json-server", "--host", "0.0.0.0", "--port", "8080" , "--watch", "adjectives.json"]
 
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:80 || exit 1
+HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:8080 || exit 1
 
 

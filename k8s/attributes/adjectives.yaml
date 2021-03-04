@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: adjectives
-        image: registry.gitlab.com/sentence-application/adjectives:latest
+        image: registry.gitlab.com/sentence-application/adjectives/volterra:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

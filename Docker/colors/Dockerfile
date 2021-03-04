@@ -31,11 +31,11 @@ ENV TERM xterm
 
 COPY colors.json /
 
-EXPOSE 80
+EXPOSE 8080
 
 #ENTRYPOINT ["json-server"]
-CMD ["json-server", "-H", "0.0.0.0", "--port", "80" , "--watch", "colors.json"]
+CMD ["json-server", "-H", "0.0.0.0", "--port", "8080" , "--watch", "colors.json"]
 
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:80 || exit 1
+HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:8080 || exit 1
 
 

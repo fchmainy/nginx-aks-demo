@@ -29,7 +29,10 @@ spec:
     spec:
       containers:
       - name: generator
-        image: registry.gitlab.com/sentence-application/generator:latest
+        image: registry.gitlab.com/sentence-application/generator/volterra:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+        env:
+        - name: NAMESPACE
+          value: api

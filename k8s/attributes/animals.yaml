@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: animals
-        image: registry.gitlab.com/sentence-application/animals:latest
+        image: registry.gitlab.com/sentence-application/animals/volterra:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
