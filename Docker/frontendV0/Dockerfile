@@ -58,13 +58,16 @@ RUN sed -i -e 's/^zlib.output_compression\s*=.*/zlib.output_compression = Off/' 
 
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/servername.conf
 RUN a2enconf servername
+RUN service apache2 stop
 COPY generator.conf /etc/apache2/sites-available/
 RUN a2dissite 000-default
+RUN sed -i "s/80/8080/g" /etc/apache2/ports.conf
 RUN a2ensite generator.conf
 
 RUN chgrp -R www-data /var/www
 RUN find /var/www -type d -exec chmod 775 {} +
 RUN find /var/www -type f -exec chmod 664 {} +
+RUN service apache2 start
 
 EXPOSE 8080
 
