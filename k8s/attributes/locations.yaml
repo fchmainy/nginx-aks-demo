@@ -27,9 +27,7 @@ spec:
     spec:
       containers:
       - name: locations
-        image: registry.gitlab.com/k8sfch/demo-name-generator/locations:latest
+        image: registry.gitlab.com/sentence-application/locations:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-        - name: regcred

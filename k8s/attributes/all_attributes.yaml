@@ -30,12 +30,10 @@ spec:
     spec:
       containers:
       - name: adjectives
-        image: registry.gitlab.com/k8sfch/demo-name-generator/adjectives:latest
+        image: registry.gitlab.com/sentence-application/adjectives:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -68,12 +66,10 @@ spec:
     spec:
       containers:
       - name: animals
-        image: registry.gitlab.com/k8sfch/demo-name-generator/animals:latest
+        image: registry.gitlab.com/sentence-application/animals:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -106,12 +102,10 @@ spec:
     spec:
       containers:
       - name: colors
-        image: registry.gitlab.com/k8sfch/demo-name-generator/colors:latest
+        image: registry.gitlab.com/sentence-application/colors:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -144,12 +138,10 @@ spec:
     spec:
       containers:
       - name: locations
-        image: registry.gitlab.com/k8sfch/demo-name-generator/locations:latest
+        image: registry.gitlab.com/sentence-application/locations:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -182,9 +174,7 @@ spec:
     spec:
       containers:
       - name: generator
-        image: registry.gitlab.com/k8sfch/demo-name-generator/generator:latest
+        image: registry.gitlab.com/sentence-application/generator:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
