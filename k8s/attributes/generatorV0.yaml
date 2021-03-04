@@ -1,38 +1,40 @@
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
-  namespace: webapp
+  name: generator
+  namespace: api
 spec:
   type: ClusterIP
   ports:
   - port: 80
+    protocol: TCP
     targetPort: 80
   selector:
-    app: frontend
+    name: generator
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  namespace: webapp
+  name: generator
+  namespace: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      name: generator
   template:
     metadata:
       labels:
-        app: frontend
+        name: generator
     spec:
       containers:
-      - name: frontend
-        image: registry.gitlab.com/sentence-application/frontend:latest
+      - name: generator
+        image: registry.gitlab.com/k8sfch/demo-name-generator/generator:v0.0.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         env:
         - name: NAMESPACE
           value: m-dierick
+      imagePullSecrets:
+        - name: regcred
