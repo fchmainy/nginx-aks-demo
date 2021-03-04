@@ -63,7 +63,7 @@ def get_index(ns, attribute):
     method = 'GET'
     content_type = 'application/json'
     #content_length = len(body)
-    uri = 'http://' attribute + '.' + ns + '/' + attribute
+    uri = 'http://' + attribute + '.' + ns + '/' + attribute
 
     headers = {
         'content-type': content_type,
