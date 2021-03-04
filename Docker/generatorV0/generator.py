@@ -88,7 +88,7 @@ def get_data(ns, attribute, index):
     content_type = 'application/json'
     resource = '/'+ attribute
     #content_length = len(body)
-    uri = 'http://' attribute + '.' + ns + '/' / attribute + '/' + str(index)
+    uri = 'http://' + attribute + '.' + ns + '/' / attribute + '/' + str(index)
 
     headers = {
         'content-type': content_type,
