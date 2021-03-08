@@ -21,8 +21,8 @@
 		</HEAD>
 		<BODY>
 			<?php
-				$NAMESPACE = $_SERVER["NAMESPACE"];
-				$url='http://generator.'.$NAMESPACE.'/name';
+                $NS = getenv('NAMESPACE');
+				$url='http://generator.'.$NS.'/name';
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_URL,$url);
