@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
-  namespace: debug
+  namespace: m-dierick
 spec:
   type: ClusterIP
   ports:
@@ -16,7 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: debug
+  namespace: m-dierick
 spec:
   replicas: 1
   selector:
@@ -29,10 +29,10 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.gitlab.com/sentence-application/frontend/volterra:latest
+        image: registry.gitlab.com/sentence-application/frontend/frontend-ns-8080:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
         - name: NAMESPACE
-          value: debug
+          value: m-dierick

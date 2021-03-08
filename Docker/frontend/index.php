@@ -21,7 +21,7 @@
 		</HEAD>
 		<BODY>
 			<?php
-				$url="http://apigw.apigw.svc.cluster.local/name";
+				$url="http://apigw-microapigw.apigw.svc.cluster.local/name";
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_URL,$url);

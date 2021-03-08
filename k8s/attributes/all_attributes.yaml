@@ -160,7 +160,7 @@ spec:
     spec:
       containers:
       - name: generator
-        image: registry.gitlab.com/sentence-application/generator:latest
+        image: registry.gitlab.com/sentence-application/generator/generator-via-apigw:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
