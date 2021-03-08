@@ -21,7 +21,8 @@
 		</HEAD>
 		<BODY>
 			<?php
-				$url="http://apigw-microapigw.apigw.svc.cluster.local/name";
+				$NAMESPACE = $_SERVER["NAMESPACE"];
+				$url='http://apigw-microapigw.'.$NAMESPACE.'/name';
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_URL,$url);
