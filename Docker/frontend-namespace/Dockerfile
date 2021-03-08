@@ -66,8 +66,14 @@ RUN a2ensite generator.conf
 RUN a2dissite 000-default
 
 RUN chgrp -R www-data /var/www
-RUN find /var/www -type d -exec chmod 775 {} +
-RUN find /var/www -type f -exec chmod 664 {} +
+RUN find /var/www -type d -exec chmod 777 {} +
+RUN find /var/www -type f -exec chmod 777 {} +
+RUN chmod -R 777 /var/log/apache2/error.log
+RUN chmod -R 777 /var/log/apache2/other_vhosts_access.log
+RUN chmod -R 777 /var/log/apache2/access.log
+RUN chmod -R 777 /var/run/apache2/
+RUN chmod -R 777 /var/www/html/
+
 
 EXPOSE 8080
 
@@ -75,7 +81,7 @@ WORKDIR /var/www/html
 
 RUN rm index.html
 
-HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:8080 || exit 1
+#HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:8080 || exit 1
 
 CMD apachectl -D FOREGROUND
 
