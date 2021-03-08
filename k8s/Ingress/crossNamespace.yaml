@@ -48,7 +48,7 @@ spec:
         paths: 
         - path: /api/v1/
           backend: 
-             serviceName: apigw
+             serviceName: apigw-microapigw
              servicePort: 80
 
 ---
