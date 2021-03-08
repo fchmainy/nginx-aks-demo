@@ -50,7 +50,7 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(message))
 
 def name_generator():
-	gateway = 'apigw.apigw.svc.cluster.local'
+	gateway = 'apigw-microapigw.apigw.svc.cluster.local'
 	generated_name = {}
 	attributes_list = ['adjectives', 'animals', 'colors', 'locations']
 	for attribute in attributes_list:

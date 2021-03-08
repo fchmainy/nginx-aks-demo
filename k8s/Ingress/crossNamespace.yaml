@@ -40,7 +40,7 @@ metadata:
   annotations: 
     kubernetes.io/ingress.class: "nginx"
     nginx.org/mergeable-ingress-type: "minion"
-    nginx.org/rewrites: "serviceName=apigw rewrite=/"
+    nginx.org/rewrites: "serviceName=apigw-microapigw rewrite=/"
 spec: 
   rules:
     - host: www.name-generator.com
@@ -48,7 +48,7 @@ spec:
         paths: 
         - path: /api/v1/
           backend: 
-             serviceName: apigw
+             serviceName: apigw-microapigw
              servicePort: 80
 
 ---
