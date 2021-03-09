@@ -18,6 +18,10 @@ Simple application composed of multiple microservices.
   [Task1: Deploy the version 1 of the application] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task1/README.md)
   ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/task1-topology.jpg?raw=true)
 
+In term of micro-services, this is how there are spread and used by the Webapp frontend
+
+  ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/webapp-containers.png?raw=true)
+
 **Features:**
 - NGINX+ Ingress Service
 - Cross-Namespace deployment
