@@ -20,7 +20,7 @@ Simple application composed of multiple microservices.
 
 In term of micro-services, this is how there are spread and used by the Webapp frontend
 
-  ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/webapp-containers.png?raw=true)
+  ![alt text](https://github.com/MattDierick/api-sentence-demo/blob/main/docs/images/webapp-containers.png?raw=true)
 
 **Features:**
 - NGINX+ Ingress Service
