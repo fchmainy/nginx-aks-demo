@@ -1,6 +1,10 @@
 # Description
 In this task, we will learn how to deploy this app. It is straight forward, as all docker images can run either in K8S/k3s/Volterra or any other Kubernetes environment.
 
+As a reminder, this is the application workflow.
+
+  ![alt text](../../docs/images/task1-topology.jpg)
+
 # Deploy the WORDS microservices
 First of all, deploy the 4 WORD microservices
 - locations
