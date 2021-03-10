@@ -4,7 +4,7 @@ It is composed of multiple technology frameworks.
 
 This app will generate a sentence :)
 
-![alt text](https://raw.githubusercontent.com/MattDierick/api-sentence-demo/main/docs/images/webapp.png)
+![alt text](docs/images/webapp.png)
 
 # Features
 - Ingress Canary testing
@@ -15,12 +15,12 @@ This app will generate a sentence :)
 # Lab Documentation
 ## Task 1: Deploy the version 1 of the application
 Simple application composed of multiple microservices.
-  [Task1: Deploy the version 1 of the application] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task1/README.md)
-  ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/task1-topology.jpg?raw=true)
+  [Task1: Deploy the version 1 of the application](docs/task1/README.md)
+  ![alt text](docs/images/task1-topology.jpg)
 
 In term of micro-services, this is how there are spread and used by the Webapp frontend
 
-  ![alt text](https://github.com/MattDierick/api-sentence-demo/blob/main/docs/images/webapp-containers.png?raw=true)
+  ![alt text](docs/images/webapp-containers.png)
 
 **Features:**
 - NGINX+ Ingress Service
@@ -35,7 +35,7 @@ In term of micro-services, this is how there are spread and used by the Webapp f
   **Features:**
   - NGINX Controller API Management
   
-    ![](https://raw.githubusercontent.com/MattDierick/api-sentence-demo/main/docs/images/topology2.png)
+    ![](docs/images/topology2.png)
 
 
 ## Task 3: Web Application and API Protection (WAAP)
@@ -76,7 +76,7 @@ In term of micro-services, this is how there are spread and used by the Webapp f
       in our scenario, the generator is the central piece of the configuration so we decided to make it have its own APIGW closest to the application.
         - it scales 1:1 along with the application
 
-  ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/Task2-topology.png?raw=true)
+  ![alt text](docs/images/Task2-topology.png?raw=true)
 
   **Duration:**: 30 minutes.
 
