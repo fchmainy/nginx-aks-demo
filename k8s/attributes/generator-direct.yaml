@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: generator
-        image: registry.gitlab.com/sentence-application/generator/volterra:latest
+        image: registry.gitlab.com/sentence-application/generator/volterra-v0:dynamic
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
