@@ -15,7 +15,7 @@ This app will generate a sentence :)
 # Lab Documentation
 ## Task 1: Deploy the version 1 of the application
 Simple application composed of multiple microservices.
-  [Task1: Deploy the version 1 of the application] (https://raw.githubusercontent.com/fchmainy/nginx-aks-demo/main/docs/task1/README.md)
+  [Task1: Deploy the version 1 of the application](docs/task1/README.md)
   ![alt text](https://github.com/fchmainy/nginx-aks-demo/blob/main/docs/images/task1-topology.jpg?raw=true)
 
 In term of micro-services, this is how there are spread and used by the Webapp frontend
