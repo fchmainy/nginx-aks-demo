@@ -22,31 +22,33 @@ Run this command in your Kubernetes environment
 kubectl apply -f ./k8s/attributes/all_attributes.yaml
 ```
 
-This command will deploy 4 PODS and 4 SERVICES in **ClusterIP** mode. All services listen on port 80 and all PODS on port 8080.
+This command will deploy 4 `PODS` and 4 `SERVICES` in **ClusterIP** mode. All `services` listen on port 80 and all `PODS` on port 8080.
 
 # Deploy the Generator
-As a reminder, the generator is a python application calling each microservice to get a WORD (randomly). This generator listen on port **8080**, and his service on port **80**.
+As a reminder, the generator is a python application calling each microservice to get a WORD (randomly). This generator POD listens on port **8080**, and his service on port **80**.
 
 ```
 vi k8s/attributes/generator-direct.yaml
 ```
 
-Modify the YAML deployment with the right NAMESPACE value at the end. This value is the NAMESPACE where the 4 microservices run (deployed in the previous step). The generator needs this information to reach the service in K8S.
+Modify the YAML deployment with the right `NAMESPACE` value at the end. This value is the NAMESPACE where the 4 microservices run (deployed in the previous step). The `generator` needs this information to reach the service in K8S.
 
-Example of call done by the `generator` to get the color word : curl http://colors.api/colors
+> Example of call done by the `generator` to get the color word: curl http://colors.api/colors
 
-**api** is the namespace, and **colors** is the k8s service.
+> `Colors` is the service name, `api` is the namespace
 
 Then, run the deployment
 ```
 kubectl apply -f ./k8s/attributes/generator-direct.yaml
 ```
 
+> You can notice 2 kind of `generator`deployment. The other YAML deployment file can be use in the task when an API Gateway is used between the `generator` and the `words` services.
+
 # Deploy the Frontend application (webapp)
 In order to display the final sentence, we can run a `web application` that will call the `generator`.
-This web application is not mandatory in case you just want to use this app for an API lab.
+This web application is not mandatory in case you just want to use this lab for an API demo/use case.
 
-Edit the YAML deployment file in order to specify the NAMESPACE of the `generator`. This web application can be deployed in another namespace for instance. But teh web application needs to know where is the generator service.
+Edit the YAML deployment file in order to specify the `NAMESPACE` of the `generator`. This web application can be deployed in another namespace for instance. But this web application needs to know where is the generator service.
 
 ```
 vi .k8s/attributes/frontend-namespace-generator.yaml
@@ -81,6 +83,6 @@ Find the port used by the `NodePort`
 kubectl get services
 ```
 
-And connect to your node with this port **http://node_IP:NodePort**
+> And connect to your node with this port **http://node_IP:NodePort**
 
 
