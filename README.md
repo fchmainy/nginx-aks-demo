@@ -4,7 +4,7 @@ It is composed of multiple technology frameworks.
 
 This app will generate a sentence :)
 
-![alt text](docs/images/webapp.png)
+![alt text](docs/images/sentence-webapp.gif)
 
 # Features
 - Ingress Canary testing
