@@ -9,7 +9,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
     name: generator
 ---
@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: generator
-        image: registry.gitlab.com/sentence-application/generator/volterra:latest
+        image: registry.gitlab.com/sentence-application/generator/volterra-v0:dynamic
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
