@@ -43,8 +43,8 @@ In term of micro-services, this is how there are used by the Webapp frontend.
 
 
 ## Lab 2: API Management
-  ###Goal###
- 
+  **Goal**
+
   Deploy an API Gw in Kubernetes managed by Nginx Controller. And scale this Gateway in K8S with auto-adoption by the controller.
 
   Deploy and Ingress Controller to route the traffic to:
