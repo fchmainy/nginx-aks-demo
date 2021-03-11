@@ -6,11 +6,6 @@ This app will generate a sentence :)
 
 ![alt text](docs/images/sentence-webapp.gif)
 
-# Features
-- Ingress Canary testing
-- Cross-namespace Ingress
-- JWT validation
-- MS API GW
 
 # Lab Documentation
 ## Lab 1: Deploy the application in your k8s environment
