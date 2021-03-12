@@ -23,6 +23,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 ENV TERM xterm
 
 COPY index.php /var/www/html
+RUN mkdir /var/www/html/images
+COPY ./images /var/www/html/images
 
 # Enable apache mods.
 RUN apt-get install locales
