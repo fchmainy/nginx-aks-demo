@@ -22,7 +22,7 @@
 		<BODY>
 			<?php
                 $NS = getenv('NAMESPACE');
-                $url='http://apigw-microapigw.'.$NS.'.svc.cluster.local/name';
+                $url='http://apigw-microapigw.'.$NS.'/name';
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_URL,$url);
