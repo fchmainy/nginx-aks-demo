@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: namegenerator-ingress-main
+  namespace: main
+  annotations:
+      kubernetes.io/ingress.class: "nginx"
+      nginx.org/mergeable-ingress-type: "master"
+spec:
+  rules:
+  - host: sentence.emea.f5se.com
+
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: namegenerator-ingress-webapp-minion
+  namespace: webapp
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.org/mergeable-ingress-type: "minion"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80
+
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: namegenerator-ingress-api-minion
+  namespace: api
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.org/mergeable-ingress-type: "minion"
+    nginx.org/rewrites: "serviceName=apigw-microapigw rewrite=/"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api
+        backend:
+           serviceName: generator
+           servicePort: 80
