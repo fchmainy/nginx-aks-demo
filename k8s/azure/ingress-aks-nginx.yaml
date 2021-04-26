@@ -22,7 +22,8 @@ metadata:
     nginx.org/mergeable-ingress-type: "minion"
 spec:
   rules:
-  - http:
+  - host: sentence.emea.f5se.com
+    http:
       paths:
       - path: /
         backend:
@@ -41,7 +42,8 @@ metadata:
     nginx.org/rewrites: "serviceName=apigw-microapigw rewrite=/"
 spec:
   rules:
-  - http:
+  - host: sentence.emea.f5se.com
+    http:
       paths:
       - path: /api
         backend:
