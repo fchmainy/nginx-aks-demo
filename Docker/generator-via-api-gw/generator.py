@@ -4,6 +4,7 @@ import json
 import urlparse
 import cgi
 import requests
+import os
 
 from random import seed
 from random import randint
@@ -50,7 +51,8 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(message))
 
 def name_generator():
-	gateway = 'apigw-microapigw.apigw.svc.cluster.local'
+    namespace = os.getenv('NAMESPACE', 'apigw')
+	gateway = 'apigw-microapigw.' + namespace + '.svc.cluster.local'
 	generated_name = {}
 	attributes_list = ['adjectives', 'animals', 'colors', 'locations']
 	for attribute in attributes_list:
