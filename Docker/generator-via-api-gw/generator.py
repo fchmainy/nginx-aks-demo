@@ -52,15 +52,15 @@ class Server(BaseHTTPRequestHandler):
 
 def name_generator():
     namespace = os.getenv('NAMESPACE', 'apigw')
-	gateway = 'apigw-microapigw.' + namespace + '.svc.cluster.local'
-	generated_name = {}
-	attributes_list = ['adjectives', 'animals', 'colors', 'locations']
-	for attribute in attributes_list:
-		api_size = get_index(gateway, attribute)
-		index = randint(1, api_size)
-		name = get_data(gateway, attribute, index)
-		generated_name[attribute] = name
-	return generated_name
+    gateway = 'apigw-microapigw.' + namespace + '.svc.cluster.local'
+    generated_name = {}
+    attributes_list = ['adjectives', 'animals', 'colors', 'locations']
+    for attribute in attributes_list:
+        api_size = get_index(gateway, attribute)
+        index = randint(1, api_size)
+        name = get_data(gateway, attribute, index)
+        generated_name[attribute] = name
+    return generated_name
 
 def get_index(gateway, attribute):
     method = 'GET'
