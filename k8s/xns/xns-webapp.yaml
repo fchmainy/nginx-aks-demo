@@ -1,0 +1,16 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServerRoute
+metadata:
+  name: webapp-vsr
+  namespace: webapp
+spec:
+  ingressClassName: ingressclass1
+  host: www.mycompany.com
+  upstreams:
+  - name: front
+    service: frontend
+    port: 80
+  subroutes:
+  - path: /
+    action:
+      pass: front
