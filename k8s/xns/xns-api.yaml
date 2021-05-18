@@ -1,0 +1,50 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServerRoute
+metadata:
+  name: api-vsr
+  namespace: api
+spec:
+  ingressClassName: ingressclass1
+  host: www.mycompany.com
+  upstreams:
+  - name: generator
+    service: generator
+    port: 80
+  - name: adjectives
+    service: adjectives
+    port: 80
+  - name: animals
+    service: animals
+    port: 80
+  - name: colors
+    service: colors
+    port: 80
+  - name: locations
+    service: locations
+    port: 80
+  subroutes:
+  - path: /api
+    action:
+      proxy:
+        upstream: generator
+        rewritePath: /
+  - path: /api/colors
+    action:
+      proxy:
+        upstream: colors
+        rewritePath: /colors
+  - path: /api/animals
+    action:
+      proxy:
+        upstream: animals
+        rewritePath: /animals
+  - path: /api/adjectives
+    action:
+      proxy:
+        upstream: adjectives
+        rewritePath: /adjectives
+  - path: /api/locations
+    action:
+      proxy:
+        upstream: locations
+        rewritePath: /locations
