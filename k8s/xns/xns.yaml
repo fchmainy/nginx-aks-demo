@@ -1,0 +1,13 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: disagregator
+  namespace: dag
+spec:
+  ingressClassName: ingressclass1
+  host: www.mycompany.com
+  routes:
+  - path: /
+    route: webapp/webapp-vsr
+  - path: /api
+    route: api/api-vsr
