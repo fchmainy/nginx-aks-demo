@@ -22,9 +22,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # to be able to use "nano" with shell on "docker exec -it [CONTAINER ID] bash"
 ENV TERM xterm
 
-COPY index.php /var/www/html
-RUN mkdir /var/www/html/images
-COPY ./images /var/www/html/images
+COPY ./html /var/www/html
 
 # Enable apache mods.
 RUN apt-get install locales
@@ -50,4 +48,3 @@ WORKDIR /var/www/html
 
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost:8080 || exit 1
 
-CMD apachectl -D FOREGROUND
