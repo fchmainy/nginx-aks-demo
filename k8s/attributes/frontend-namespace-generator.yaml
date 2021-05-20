@@ -34,3 +34,5 @@ spec:
         env:
         - name: NAMESPACE
           value: m-dierick
+        - name: GOOGLETAGID
+          value: GTM-PC5HX2H
