@@ -27,6 +27,7 @@
                                 width: 700px;
                                 height: 50px;
                                 justify-content: center;
+                                }
                         </style>
                 </HEAD>
                 <BODY>
