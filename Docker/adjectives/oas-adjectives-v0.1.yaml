@@ -1,28 +1,28 @@
 openapi: 3.0.1
 info:
-  title: colors
-  description: list of colors
+  title: adjectives
+  description: list of adjectives
   version: '0.1'
 servers:
-  - url: 'http://colors:8080'
+  - url: 'http://adjectives.api:8080'
 paths:
-  /colors:
+  /adjectives:
     get:
-      description: List all colors
-      operationId: listColors
+      description: List all adjectives
+      operationId: listAdjectives
       responses:
         '200':
-          description: a list of colors with their index
+          description: a list of adjectives with their index
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Colors"
-              #examples: {"adjectives": [{"id":1,"name":"blue"}]}
+                $ref: "#/components/schemas/Adjectives"
+              #examples: {"adjectives": [{"id":1,"name":"kind"}]}
       servers:
-        - url: 'http://colors:8080'
+        - url: 'http://adjectives.api:8080'
     post:
-      description: create a color
-      operationId: createColor
+      description: create an adjectives
+      operationId: createAdjective
       requestBody:
         content:
           application/json:
@@ -35,22 +35,22 @@ paths:
                   type: integer
             examples:
               '0':
-                value: '{"name":"yellow"}'
+                value: '{"name":"kind"}'
               '1':
                 value: '{"id":4}'
       responses:
         '201':
-          description: color created
+          description: adjective created
           content:
             application/json; charset=utf-8:
               schema:
                 type: string
               examples: {}
       servers:
-        - url: 'http://colors:8080'
+        - url: 'http://adjectives.api:8080'
     delete:
-      description: delete a color
-      operationId: deleteColor
+      description: delete a adjective
+      operationId: deleteAdjective
       responses:
         '404':
           description: Auto generated using Swagger Inspector
@@ -60,18 +60,18 @@ paths:
                 type: string
               examples: {}
       servers:
-        - url: 'http://colors:8080'
+        - url: 'http://adjectives.api:8080'
     servers:
-      - url: 'http://colors:8080'
-  /colors/{id}:
+      - url: 'http://adjectives:8080'
+  /adjectives/{id}:
     get:
-      description: get a specific color
-      operationId: showColorById
+      description: get a specific adjective
+      operationId: showAdjectiveById
       parameters:
         - name: id
           in: path
           required: true
-          description: id of the color to retrieve
+          description: id of the adjective to retrieve
           schema:
             type: integer
       responses:
@@ -80,14 +80,14 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: "#/components/schemas/Color"
-              # examples: {"adjectives": [{"id":1,"name":"blue"}]}
+                $ref: "#/components/schemas/Adjective"
+              # examples: {"adjectives": [{"id":1,"name":"kind"}]}
       servers:
-        - url: 'http://colors:8080'
+        - url: 'http://adjectives.api:8080'
         
 components:
   schemas:
-    Color:
+    Adjectives:
       required:
         - id
         - name
@@ -99,7 +99,7 @@ components:
           type: string
   #      tag:
   #        type: string
-    Colors:
+    Adjectives:
       type: array
       items:
-        $ref: "#/components/schemas/Color"
+        $ref: "#/components/schemas/Adjectives"
