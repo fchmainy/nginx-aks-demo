@@ -17,7 +17,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Locations"
-              #examples: {"adjectives": [{"id":1,"name":"blue"}]}
+              #examples: {"locations": [{"id":1,"name":"blue"}]}
       servers:
         - url: 'http://locations:8080'
     post:
