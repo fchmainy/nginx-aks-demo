@@ -1,0 +1,52 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: sentence
+spec:
+  host: generator.sentence.com
+  upstreams:
+  - name: frontend
+    service: frontend
+    port: 80
+  - name: generator
+    service: generator
+    port: 80
+  - name: adjectives
+    service: adjectives
+    port: 80
+  - name: animals
+    service: animals
+    port: 80
+  - name: colors
+    service: colors
+    port: 80
+  - name: locations
+    service: locations
+    port: 80
+  routes:
+  - path: /
+    action:
+      pass: frontend
+  - path: /api/
+    action:
+      pass: generator
+  - path: /api/adjectives
+    action:
+      proxy:
+        upstream: adjectives
+        rewritePath: /adjectives
+  - path: /api/animals
+    action:
+       proxy:
+         upstream: animals
+         rewritePath: /animals
+  - path: /api/colors
+    action:
+      proxy:
+        upstream: colors
+        rewritePath: /colors
+  - path: /api/locations
+    action:
+      proxy:
+        upstream: locations
+        rewritePath: /locations
