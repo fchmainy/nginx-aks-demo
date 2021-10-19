@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-FROM node:10
+FROM node:12
 MAINTAINER Fouad Chmainy <fchmainy@f5.com>
 ENV DEBIAN_FRONTEND=noninteractive
 
